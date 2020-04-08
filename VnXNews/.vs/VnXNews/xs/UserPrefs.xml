@@ -1,0 +1,48 @@
+﻿<Properties StartupConfiguration="{A9AA32B0-5757-4AFB-BE15-89BE10F67962}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="VnXNews/Views/TabItem.xaml.cs">
+    <Files>
+      <File FileName="VnXNews/Views/MainPageCustom.xaml" Line="1" Column="39" />
+      <File FileName="VnXNews/Views/MainPageCustom.xaml.cs" Line="18" Column="24" />
+      <File FileName="VnXNews/Views/TabItem.xaml" Line="21" Column="89" />
+      <File FileName="VnXNews/Views/TabItem.xaml.cs" Line="48" Column="83" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="VnXNews" expanded="True">
+            <Node name="VnXNews" expanded="True">
+              <Node name="Dependencies" expanded="True">
+                <Node name="PackageDependencies" expanded="True" />
+              </Node>
+              <Node name="Models" expanded="True" />
+              <Node name="ViewModels" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="MainPageCustom.xaml" expanded="True" />
+                <Node name="RssTriThucPage.xaml" expanded="True" />
+                <Node name="TabItem.xaml" expanded="True">
+                  <Node name="TabItem.xaml.cs" selected="True" />
+                </Node>
+                <Node name="TabItemViewList.xaml" expanded="True" />
+              </Node>
+              <Node name="App.xaml" expanded="True" />
+            </Node>
+            <Node name="VnXNews.iOS" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <Debugger.DebugSourceFolders>
+    <String>/Users/ledinhhung/Library/Caches/VisualStudio/8.0/Symbols/mono/mono/3775d5ac0adcbd3c40ecc65286e1c4a1ad1b5965</String>
+  </Debugger.DebugSourceFolders>
+  <MonoDevelop.Ide.ItemProperties.VnXNews.Android FirstBuild="True" PreferredExecutionTarget="Android.SelectDevice" />
+  <MonoDevelop.Ide.ItemProperties.VnXNews.iOS automaticSigning="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.B30A2C42-354D-4A88-8CE3-B624C9673352" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/ledinhhung/Projects/VnXNews/.vs/VnXNews/xs/UserPrefs.xml" relfile=".vs/VnXNews/xs/UserPrefs.xml" line="25" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

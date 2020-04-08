@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:VnXNews.ViewModels" x:Class="VnXNews.Views.CollectionViewRssPage">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="10, 20, 10, 0" />
+            <On Platform="Android, UWP" Value="10, 0" />
+        </OnPlatform>
+    </ContentPage.Padding>
+        
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="validImageTemplate">
+                <ViewCell>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <StackLayout HorizontalOptions="FillAndExpand">
+                            <Label Text="{Binding Title}" FontAttributes="Bold"  TextColor="Green" LineBreakMode="TailTruncation" />
+                            <Label Text="{Binding DecoPubDate}" TextColor="Gray" HorizontalOptions="EndAndExpand"  />
+                        </StackLayout>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+            <DataTemplate x:Key="invalidImageTemplate">
+                <ViewCell>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <Image Source="{Binding Thumbnail}" WidthRequest="150" HeightRequest="150"  />
+                            <StackLayout>
+                                <Label Text="{Binding Title}" FontAttributes="Bold" TextColor="Red"/>
+                                <Label Text="{Binding DecoPubDate}" TextColor="Gray" HorizontalOptions="EndAndExpand" />
+                            </StackLayout>
+                        </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+            <local:RSSFeedTemplateSelector x:Key="rssFeedTemplateSelector"
+                   ValidTemplate="{StaticResource validImageTemplate}"
+                   InvalidTemplate="{StaticResource invalidImageTemplate}"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+        <Grid>
+            <StackLayout x:Name="rssLayout">
+                <Label Text="{Binding Title}"
+                        FontAttributes="Bold"
+                        HorizontalTextAlignment="Center" />
+                <ListView x:Name="listView" 
+                            ItemsSource="{Binding Items}"
+                            ItemSelected="OnListViewItemSelected"
+                            IsPullToRefreshEnabled="True"
+                            RefreshCommand="{Binding RefreshCommand}"
+                            IsRefreshing="{Binding IsRefreshing}"
+                            ItemTemplate="{StaticResource rssFeedTemplateSelector}"
+                            HasUnevenRows="True">
+                </ListView>
+            </StackLayout>
+            <StackLayout x:Name="webLayout"
+                            IsVisible="False">
+
+                <WebView x:Name="webView"  
+                            VerticalOptions="FillAndExpand" />
+
+                <Button Text="&lt; Back to List"
+                        HorizontalOptions="Center"
+                        Clicked="OnBackButtonClicked" />
+            </StackLayout>
+        </Grid>
+</ContentPage>

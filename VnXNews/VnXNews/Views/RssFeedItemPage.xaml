@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:VnXNews.ViewModels" x:Class="VnXNews.Views.RssFeedItemPage">
+ <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="10, 20, 10, 0" />
+            <On Platform="Android, UWP" Value="10, 0" />
+        </OnPlatform>
+    </ContentPage.Padding>
+
+    <Grid>
+        <StackLayout x:Name="rssLayout" BackgroundColor="Red">
+
+            <Label Text="{Binding Title}"
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Center" />
+            <ListView x:Name="listView" 
+                      ItemsSource="{Binding Items}"
+                      ItemSelected="OnListViewItemSelected"
+                      IsPullToRefreshEnabled="True"
+                      RefreshCommand="{Binding RefreshCommand}"
+                      IsRefreshing="{Binding IsRefreshing}"
+                      HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="{Binding Thumbnail}" BackgroundColor="Red"/>
+                                <StackLayout>
+                                    <Label Text="{Binding Title}" FontAttributes="Bold" LineBreakMode="TailTruncation" />
+                                    <Label Text="{Binding PubDate}" TextColor="Gray" LineBreakMode="TailTruncation" />
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+
+        <StackLayout x:Name="webLayout"
+                     IsVisible="False">
+
+            <WebView x:Name="webView"  
+                     VerticalOptions="FillAndExpand" />
+
+            <Button Text="&lt; Back to List"
+                    HorizontalOptions="Center"
+                    Clicked="OnBackButtonClicked" />
+        </StackLayout>
+    </Grid>
+</ContentPage>
