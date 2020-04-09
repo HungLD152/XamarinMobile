@@ -9,7 +9,6 @@ namespace VnXNews.Views
     public partial class MainPageCustom : ContentPage
     {
         public string Url { get; set; }
-        private TabItem tabItem = new TabItem();
         private RssItemViewModel viewModel = new RssItemViewModel();
         public MainPageCustom()
         {

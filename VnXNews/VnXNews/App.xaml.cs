@@ -13,9 +13,7 @@ namespace VnXNews
         public App()
         {
             InitializeComponent();
-            DependencyService.Register<MockDataStore>();
-            MainPage = new NavigationPage(new MainPageCustom()); 
-                     
+            MainPage = new NavigationPage(new MainPage()); 
         }
 
         protected override void OnStart()
