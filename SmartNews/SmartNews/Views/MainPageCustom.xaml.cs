@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using SmartNews.Models;
 using SmartNews.ViewModels;
 using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration;
+using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 
 namespace SmartNews.Views
 {
@@ -22,6 +24,10 @@ namespace SmartNews.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
+
+            var safeInsets = On<iOS>().SafeAreaInsets();
+            safeInsets.Left = 0;
+            Padding = safeInsets;
             viewModel.Url = Url;
             viewModel.LoadRssFeed();
         }
