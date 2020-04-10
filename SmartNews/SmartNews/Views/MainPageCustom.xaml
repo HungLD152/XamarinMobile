@@ -47,10 +47,7 @@
     </ContentPage.Resources>
     <Grid>
         <StackLayout x:Name="ShowData">
-            <ScrollView Orientation="Horizontal" x:Name="NavigationBar">
-                <tabview:TabItem x:Name="TabHost" Parameter="https://cdn.24h.com.vn/upload/rss/trangchu24h.rss"/>
-                 <!--<tabview:TabBarControl />-->
-            </ScrollView>
+            <tabview:ControlTabBar />
             <ListView x:Name="listView"
                             ItemsSource="{Binding Items}"
                             IsPullToRefreshEnabled="True"

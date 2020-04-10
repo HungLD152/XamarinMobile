@@ -1,26 +1,48 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using SmartNews.Models;
-using SmartNews.ViewModels;
+using System.Runtime.CompilerServices;
 using Xamarin.Forms;
 
 namespace SmartNews.Views
 {
-    public partial class TabBarControl : ScrollView
+    public partial class ControlTabBar : ScrollView
     {
-        private RssItemViewModel viewModel = new RssItemViewModel();
-        RSSFeedItem rssItem;
-        public TabBarControl(IList<TabItems> tabItems)
+        public string Title { get; set; }
+        public event EventHandler<string> OnTabBarClicked;
+        private static BindableProperty ItemsSourceProperty = BindableProperty.Create(nameof(ItemsSource), typeof(IEnumerable<object>), typeof(ControlTabBar), null, BindingMode.TwoWay);
+        public IEnumerable<object> ItemsSource
         {
-            InitializeComponent();
-            TabHost.OnTabItemClicked += TabHost_OnTabItemClicked;
+            get { return (IEnumerable<object>)GetValue(ItemsSourceProperty); }
+            set { SetValue(ItemsSourceProperty, value); }
         }
 
-        private void TabHost_OnTabItemClicked(object sender, string e)
+        public ControlTabBar()
         {
-            viewModel.Url = e;
-            viewModel.LoadRssFeed();
+            InitializeComponent();
+        }
+
+        protected override void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            base.OnPropertyChanged(propertyName);
+            if (propertyName == ItemsSourceProperty.PropertyName)
+            {
+                var item = new TabItem();
+                var viewcell = new ViewCell();
+                ItemsSource = GetTabItems();
+                BindableLayout.SetItemsSource(viewcell, ItemsSource);
+                item.OnTabItemClicked += Item_OnTabItemClicked;
+            }
+        }
+
+        private void OnTabbarTapped(object sender, EventArgs e)
+        {
+            OnTabBarClicked?.Invoke(this, Title);
+        }
+
+        private void Item_OnTabItemClicked(object sender, string e)
+        {
+            throw new NotImplementedException();
         }
 
         private ObservableCollection<TabItems> GetTabItems()

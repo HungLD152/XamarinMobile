@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ScrollView xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:tabview="clr-namespace:SmartNews.Views"
+            x:Class="SmartNews.Views.ControlTabBar" Orientation="Horizontal" x:Name="NavigationBar">
+    <StackLayout Orientation="Horizontal" Spacing="0">
+          <StackLayout.GestureRecognizers>
+            <TapGestureRecognizer Tapped="OnTabbarTapped"/>
+        </StackLayout.GestureRecognizers>
+        <tabview:TabItem Parameter="https://cdn.24h.com.vn/upload/rss/trangchu24h.rss"/>
+    </StackLayout>
+</ScrollView>
