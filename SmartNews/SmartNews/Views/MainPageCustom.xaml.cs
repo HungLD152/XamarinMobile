@@ -10,16 +10,15 @@ namespace SmartNews.Views
 {
     public partial class MainPageCustom : ContentPage
     {
-        public string Url { get; set; }
         private RssItemViewModel viewModel = new RssItemViewModel();
+        public string Url { get; set; }
         RSSFeedItem rssItem;
         public MainPageCustom()
         {
             InitializeComponent();
             BindingContext = viewModel;
             rssItem = new RSSFeedItem();
-            //Url = TabHost.Parameter;
-            //TabHost.OnTabItemClicked += TabHost_OnTabItemClicked;
+            //TabBar.OnTabBarClicked += TabBar_OnTabItemClicked;
         }
         protected override void OnAppearing()
         {
@@ -30,7 +29,7 @@ namespace SmartNews.Views
             viewModel.Url = "https://cdn.24h.com.vn/upload/rss/trangchu24h.rss";
             viewModel.LoadRssFeed();
         }
-        private void TabHost_OnTabItemClicked(object sender, string e)
+        private void TabBar_OnTabItemClicked(object sender, string e)
         {
             viewModel.Url = e;
             viewModel.LoadRssFeed();
@@ -61,10 +60,6 @@ namespace SmartNews.Views
             // Hide and make visible.
             webLayout.IsVisible = false;
             ShowData.IsVisible = true;
-        }
-        //Button click show data
-        private void TabButtonClicked(object sender, EventArgs e)
-        {
         }
     }
 }

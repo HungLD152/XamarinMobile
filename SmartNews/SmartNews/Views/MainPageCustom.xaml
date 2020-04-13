@@ -47,7 +47,8 @@
     </ContentPage.Resources>
     <Grid>
         <StackLayout x:Name="ShowData">
-            <tabview:ControlTabBar />
+            <tabview:ControlTabBar x:Name="TabBar" ItemsSource="{Binding ItemTabBar}"/>
+                
             <ListView x:Name="listView"
                             ItemsSource="{Binding Items}"
                             IsPullToRefreshEnabled="True"

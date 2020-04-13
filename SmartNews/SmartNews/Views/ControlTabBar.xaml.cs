@@ -2,18 +2,21 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.CompilerServices;
+using SmartNews.ViewModels;
 using Xamarin.Forms;
 
 namespace SmartNews.Views
 {
     public partial class ControlTabBar : ScrollView
     {
-        public string Title { get; set; }
+        private RssItemViewModel viewModel = new RssItemViewModel();
+        public string TitleBar { get; set; }
+        public string Parameter { get; set; }
         public event EventHandler<string> OnTabBarClicked;
-        private static BindableProperty ItemsSourceProperty = BindableProperty.Create(nameof(ItemsSource), typeof(IEnumerable<object>), typeof(ControlTabBar), null, BindingMode.TwoWay);
-        public IEnumerable<object> ItemsSource
+        public static BindableProperty ItemsSourceProperty = BindableProperty.Create(nameof(ItemsSource), typeof(IList<TabBarItemModel>), typeof(ControlTabBar), null, BindingMode.TwoWay);
+        public IList<TabBarItemModel> ItemsSource
         {
-            get { return (IEnumerable<object>)GetValue(ItemsSourceProperty); }
+            get { return (IList<TabBarItemModel>)GetValue(ItemsSourceProperty); }
             set { SetValue(ItemsSourceProperty, value); }
         }
 
@@ -27,59 +30,28 @@ namespace SmartNews.Views
             base.OnPropertyChanged(propertyName);
             if (propertyName == ItemsSourceProperty.PropertyName)
             {
-                var item = new TabItem();
-                var viewcell = new ViewCell();
-                ItemsSource = GetTabItems();
-                BindableLayout.SetItemsSource(viewcell, ItemsSource);
-                item.OnTabItemClicked += Item_OnTabItemClicked;
+                Container.Children.Clear();
+                if (ItemsSource?.Count > 0)
+                    foreach (var data in ItemsSource)
+                    {
+                        //var item = new TabItem(data.TitleBar, data.Url);
+                        var item = new TabItem() { TitleBar = data.TitleBar, Parameter = data.Url };
+                        item.OnTabItemClicked += Item_OnTabItemClicked;
+                        Container.Children.Add(item);
+                    }
             }
-        }
-
-        private void OnTabbarTapped(object sender, EventArgs e)
-        {
-            OnTabBarClicked?.Invoke(this, Title);
         }
 
         private void Item_OnTabItemClicked(object sender, string e)
         {
-            throw new NotImplementedException();
+            
         }
 
-        private ObservableCollection<TabItems> GetTabItems()
-        {
-            var items = new ObservableCollection<TabItems>();
-            items.Add(new TabItems()
-            {
-                Title = "24h.com.vn",
-                Url = "https://cdn.24h.com.vn/upload/rss/trangchu24h.rss"
-            });
-            items.Add(new TabItems()
-            {
-                Title = "tinhte.vn",
-                Url = "https://cdn.24h.com.vn/upload/rss/trangchu24h.rss"
-            });
-            items.Add(new TabItems()
-            {
-                Title = "thanhnien.vn",
-                Url = "https://cdn.24h.com.vn/upload/rss/trangchu24h.rss"
-            });
-            items.Add(new TabItems()
-            {
-                Title = "trithuc.vn",
-                Url = "https://cdn.24h.com.vn/upload/rss/trangchu24h.rss"
-            });
-            items.Add(new TabItems()
-            {
-                Title = "baochinhphu.vn",
-                Url = "https://cdn.24h.com.vn/upload/rss/trangchu24h.rss"
-            });
 
-            return items;
-        }
     }
-    public class TabItems
+    public class TabBarItemModel
     {
-        public string Title { get; set; }
+        public string TitleBar { get; set; }
         public string Url { get; set; }
         public Color ItemColor { get; set; }
     }

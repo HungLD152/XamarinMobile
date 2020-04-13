@@ -7,6 +7,8 @@ using System.Net;
 using System.Windows.Input;
 using System.Xml.Linq;
 using SmartNews.Models;
+using SmartNews.Utils;
+using SmartNews.Views;
 using Xamarin.Forms;
 
 namespace SmartNews.ViewModels
@@ -18,6 +20,7 @@ namespace SmartNews.ViewModels
         public string Parameter { get; set; }
         public string searchText { get; set; }
         public ObservableCollection<RSSFeedItem> Items { get; set; } = new ObservableCollection<RSSFeedItem>();
+        public ObservableCollection<TabBarItemModel> ItemTabBar => GetTabBarItemModel();
         bool isRefreshing;
 
         public RssItemViewModel()
@@ -32,6 +35,38 @@ namespace SmartNews.ViewModels
                     return !IsRefreshing;
                 });
 
+        }
+
+        public ObservableCollection<TabBarItemModel> GetTabBarItemModel()
+        {
+            var list = new List<TabBarItemModel>();
+            list.Add(new TabBarItemModel()
+            {
+                TitleBar = "24h.com.vn",
+                Url = "https://cdn.24h.com.vn/upload/rss/trangchu24h.rss"
+            });
+            list.Add(new TabBarItemModel()
+            {
+                TitleBar = "tinhte.vn",
+                Url = "https://tinhte.vn/rss"
+            });
+            list.Add(new TabBarItemModel()
+            {
+                TitleBar = "thanhnien.vn",
+                Url = "https://thanhnien.vn/rss/home.rss"
+            });
+            list.Add(new TabBarItemModel()
+            {
+                TitleBar = "trithuc.vn",
+                Url = "https://trithucvn.net/feed"
+            });
+            list.Add(new TabBarItemModel()
+            {
+                TitleBar = "dantri.com.vn",
+                Url = "https://dantri.com.vn/trangchu.rss"
+            });
+         
+            return list.ToObservableCollection();
         }
 
         #region property RefreshCommand
@@ -114,16 +149,4 @@ namespace SmartNews.ViewModels
         }
         #endregion
     }
-    #region ObservableExtensions
-    public static class ObservableExtensions
-    {
-        public static ObservableCollection<T> ToObservableCollection<T>(this List<T> items)
-        {
-            var collection = new ObservableCollection<T>();
-            foreach (var item in items)
-                collection.Add(item);
-            return collection;
-        }
-    }
-    #endregion
 }
