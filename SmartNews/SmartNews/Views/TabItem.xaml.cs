@@ -10,6 +10,7 @@ namespace SmartNews.Views
 
         public string TitleBar { get; set; }
         public string Parameter { get; set; }
+        public Color colorTitle { get; set; }
         public event EventHandler<string> OnTabItemClicked;
 
         public TabItem()

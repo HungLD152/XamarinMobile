@@ -43,27 +43,32 @@ namespace SmartNews.ViewModels
             list.Add(new TabBarItemModel()
             {
                 TitleBar = "24h.com.vn",
-                Url = "https://cdn.24h.com.vn/upload/rss/trangchu24h.rss"
-            });
+                Url = "https://cdn.24h.com.vn/upload/rss/trangchu24h.rss",
+                ItemColor = Color.LightCoral
+            }); ;
             list.Add(new TabBarItemModel()
             {
                 TitleBar = "tinhte.vn",
-                Url = "https://tinhte.vn/rss"
+                Url = "https://tinhte.vn/rss",
+                ItemColor = Color.Orange
             });
             list.Add(new TabBarItemModel()
             {
                 TitleBar = "thanhnien.vn",
-                Url = "https://thanhnien.vn/rss/home.rss"
+                Url = "https://thanhnien.vn/rss/home.rss",
+                ItemColor = Color.Turquoise
             });
             list.Add(new TabBarItemModel()
             {
                 TitleBar = "trithuc.vn",
-                Url = "https://trithucvn.net/feed"
+                Url = "https://trithucvn.net/feed",
+                ItemColor = Color.LightSkyBlue
             });
             list.Add(new TabBarItemModel()
             {
                 TitleBar = "dantri.com.vn",
-                Url = "https://dantri.com.vn/trangchu.rss"
+                Url = "https://dantri.com.vn/trangchu.rss",
+                ItemColor = Color.MediumOrchid
             });
          
             return list.ToObservableCollection();

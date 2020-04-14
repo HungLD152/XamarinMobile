@@ -10,16 +10,17 @@
                 <Setter Property="FontAttributes" Value="Bold"/>
                 <Setter Property="LineBreakMode" Value="WordWrap"/>
                 <Setter Property="FontSize" Value="20"/>
-                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="HeightRequest" Value="30"/>
+                <Setter Property="Margin" Value="0,2,0,0"/>
             </Style>
         </ResourceDictionary>
     </StackLayout.Resources>
-    <yummy:PancakeView BackgroundColor="Red" Margin="0,5,0,5" CornerRadius="5" IsClippedToBounds="true" HorizontalOptions="FillAndExpand">
+    <yummy:PancakeView BackgroundColor="{Binding colorTitle}" CornerRadius="5" IsClippedToBounds="true">
         <yummy:PancakeView.GestureRecognizers>
             <TapGestureRecognizer Tapped="OnContentTapped"/>
         </yummy:PancakeView.GestureRecognizers>
         <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
-            <Label Text="{Binding TitleBar}" Style="{StaticResource buttonCss}" BackgroundColor="Green"/>
+            <Label Text="{Binding TitleBar}" Style="{StaticResource buttonCss}" />
         </StackLayout>
     </yummy:PancakeView>
 </StackLayout>

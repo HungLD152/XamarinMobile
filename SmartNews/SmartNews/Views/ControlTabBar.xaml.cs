@@ -9,7 +9,6 @@ namespace SmartNews.Views
 {
     public partial class ControlTabBar : ScrollView
     {
-        private RssItemViewModel viewModel = new RssItemViewModel();
         public string TitleBar { get; set; }
         public string Parameter { get; set; }
         public event EventHandler<string> OnTabBarClicked;
@@ -34,8 +33,7 @@ namespace SmartNews.Views
                 if (ItemsSource?.Count > 0)
                     foreach (var data in ItemsSource)
                     {
-                        //var item = new TabItem(data.TitleBar, data.Url);
-                        var item = new TabItem() { TitleBar = data.TitleBar, Parameter = data.Url };
+                        var item = new TabItem() { TitleBar = data.TitleBar, Parameter = data.Url, colorTitle = data.ItemColor };
                         item.OnTabItemClicked += Item_OnTabItemClicked;
                         Container.Children.Add(item);
                     }
@@ -44,11 +42,17 @@ namespace SmartNews.Views
 
         private void Item_OnTabItemClicked(object sender, string e)
         {
-            
+            var senderObj = (TabItem)sender;
+            //senderObj.HeightRequest = 32;
+            senderObj.Margin = new Thickness(0, -2, 0, 2);
+            senderObj.Padding = new Thickness(0, 0, 0, 4);
+            Container.BackgroundColor = senderObj.colorTitle;
+            NavigationBar.BackgroundColor = senderObj.colorTitle;
+            //senderObj.BackgroundColor = senderObj.colorTitle;
+            OnTabBarClicked?.Invoke(this, senderObj.Parameter);
         }
-
-
     }
+
     public class TabBarItemModel
     {
         public string TitleBar { get; set; }

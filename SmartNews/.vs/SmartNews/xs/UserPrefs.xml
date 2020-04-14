@@ -1,0 +1,45 @@
+﻿<Properties StartupConfiguration="{BD02D296-C224-4D96-9A51-7E2C11333756}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="SmartNews/Views/ControlTabBar.xaml.cs">
+    <Files>
+      <File FileName="SmartNews/Views/MainPageCustom.xaml" Line="1" Column="1" />
+      <File FileName="SmartNews/Views/MainPageCustom.xaml.cs" Line="1" Column="1" />
+      <File FileName="SmartNews/Views/ControlTabBar.xaml.cs" Line="48" Column="57" />
+      <File FileName="SmartNews/Views/ControlTabBar.xaml" Line="5" Column="99" />
+      <File FileName="SmartNews/Views/TabItem.xaml.cs" Line="1" Column="1" />
+      <File FileName="SmartNews/Views/TabItem.xaml" Line="18" Column="62" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="SmartNews" expanded="True">
+            <Node name="SmartNews" expanded="True">
+              <Node name="Dependencies" expanded="True" />
+              <Node name="Utils" expanded="True" />
+              <Node name="ViewModels" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="ControlTabBar.xaml" expanded="True">
+                  <Node name="ControlTabBar.xaml.cs" selected="True" />
+                </Node>
+                <Node name="MainPageCustom.xaml" expanded="True" />
+                <Node name="TabItem.xaml" expanded="True" />
+              </Node>
+              <Node name="App.xaml" expanded="True" />
+            </Node>
+            <Node name="SmartNews.iOS" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.SmartNews.iOS automaticSigning="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.B30A2C42-354D-4A88-8CE3-B624C9673352" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <Debugger.DebugSourceFolders>
+    <String>/Users/ledinhhung/Library/Caches/VisualStudio/8.0/Symbols/mono/mono/3775d5ac0adcbd3c40ecc65286e1c4a1ad1b5965</String>
+  </Debugger.DebugSourceFolders>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.SmartNews.Android FirstBuild="True" PreferredExecutionTarget="Android.SelectDevice" />
+</Properties>

@@ -16,10 +16,16 @@ namespace SmartNews.Views
         public MainPageCustom()
         {
             InitializeComponent();
-            BindingContext = viewModel;
             rssItem = new RSSFeedItem();
-            //TabBar.OnTabBarClicked += TabBar_OnTabItemClicked;
+            BindingContext = viewModel;
+            if (!string.IsNullOrEmpty(Url))
+            {
+                viewModel.Url = Url;
+                viewModel.LoadRssFeed();
+            }
+            TabBar.OnTabBarClicked += TabBar_OnTabItemClicked;
         }
+
         protected override void OnAppearing()
         {
             base.OnAppearing();
@@ -29,6 +35,7 @@ namespace SmartNews.Views
             viewModel.Url = "https://cdn.24h.com.vn/upload/rss/trangchu24h.rss";
             viewModel.LoadRssFeed();
         }
+
         private void TabBar_OnTabItemClicked(object sender, string e)
         {
             viewModel.Url = e;
