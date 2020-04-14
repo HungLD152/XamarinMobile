@@ -33,6 +33,7 @@ namespace SmartNews.Views
                 if (ItemsSource?.Count > 0)
                     foreach (var data in ItemsSource)
                     {
+
                         var item = new TabItem() { TitleBar = data.TitleBar, Parameter = data.Url, colorTitle = data.ItemColor };
                         item.OnTabItemClicked += Item_OnTabItemClicked;
                         Container.Children.Add(item);
@@ -42,10 +43,12 @@ namespace SmartNews.Views
 
         private void Item_OnTabItemClicked(object sender, string e)
         {
+
+
             var senderObj = (TabItem)sender;
             //senderObj.HeightRequest = 32;
-            senderObj.Margin = new Thickness(0, -2, 0, 2);
-            senderObj.Padding = new Thickness(0, 0, 0, 4);
+            senderObj.Margin = new Thickness(0, 0, 0, 2);
+            senderObj.Padding = new Thickness(0, 0, 0, 2);
             Container.BackgroundColor = senderObj.colorTitle;
             NavigationBar.BackgroundColor = senderObj.colorTitle;
             //senderObj.BackgroundColor = senderObj.colorTitle;
