@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <StackLayout xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-             Orientation="Horizontal" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" Spacing="0"
+             HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" Spacing="0"
+             Margin="0,10,0,0"
              x:Class="SmartNews.Views.TabItem">
     <StackLayout.Resources>
         <ResourceDictionary>
@@ -15,12 +16,14 @@
             </Style>
         </ResourceDictionary>
     </StackLayout.Resources>
-    <yummy:PancakeView BackgroundColor="{Binding colorTitle}" CornerRadius="5" IsClippedToBounds="true">
-        <yummy:PancakeView.GestureRecognizers>
-            <TapGestureRecognizer Tapped="OnContentTapped"/>
-        </yummy:PancakeView.GestureRecognizers>
-        <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
-            <Label Text="{Binding TitleBar}" Style="{StaticResource buttonCss}" />
+    <yummy:PancakeView BackgroundColor="{Binding ItemColor}" CornerRadius="5" IsClippedToBounds="true">
+        <StackLayout>
+            <StackLayout IsVisible="{Binding IsSelected}"/>
+            <Label Text="{Binding TitleBar}" Style="{StaticResource buttonCss}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnContentTapped" />
+                </Label.GestureRecognizers>
+            </Label>
         </StackLayout>
     </yummy:PancakeView>
 </StackLayout>

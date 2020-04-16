@@ -45,7 +45,7 @@ namespace SmartNews.ViewModels
                 TitleBar = "24h.com.vn",
                 Url = "https://cdn.24h.com.vn/upload/rss/trangchu24h.rss",
                 ItemColor = Color.LightCoral
-            }); ;
+            });
             list.Add(new TabBarItemModel()
             {
                 TitleBar = "tinhte.vn",

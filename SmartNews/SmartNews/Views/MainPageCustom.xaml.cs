@@ -38,6 +38,7 @@ namespace SmartNews.Views
 
         private void TabBar_OnTabItemClicked(object sender, string e)
         {
+            //TabBar.BackgroundColor = Color.Red;
             viewModel.Url = e;
             viewModel.LoadRssFeed();
         }
@@ -60,6 +61,12 @@ namespace SmartNews.Views
                 ShowData.IsVisible = false;
                 webLayout.IsVisible = true;
             }
+        }
+
+
+        void OnSearchButtonPressed(object sender, EventArgs args)
+        {
+            viewModel.LoadRssFeed();
         }
 
         void OnBackButtonClicked(object sender, EventArgs args)

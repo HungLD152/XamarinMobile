@@ -6,11 +6,11 @@ namespace SmartNews.ViewModels
 {
     public class ItemDetailViewModel : BaseViewModel
     {
-        public Item Item { get; set; }
-        public ItemDetailViewModel(Item item = null)
+        public RSSFeedItem RssItem { get; set; }
+        public ItemDetailViewModel(RSSFeedItem item = null)
         {
-            Title = item?.Text;
-            Item = item;
+            Title = item?.Link;
+            RssItem = item;
         }
     }
 }

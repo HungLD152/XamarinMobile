@@ -47,7 +47,13 @@
     </ContentPage.Resources>
     <Grid>
         <StackLayout x:Name="ShowData">
-            <tabview:ControlTabBar x:Name="TabBar" ItemsSource="{Binding ItemTabBar}"/>
+            <tabview:ControlTabBar x:Name="TabBar" ItemsSource="{Binding ItemTabBar}" ItemSelected="{Binding SelectedItem}"/>
+            <!--<SearchBar x:Name="searchBar" Text="{Binding searchText}"
+                        Placeholder="Search items..."
+                        HorizontalOptions="Fill"
+                        VerticalOptions="CenterAndExpand"
+                        FontAttributes="Italic"
+                        SearchButtonPressed="OnSearchButtonPressed"/>-->
             <ListView x:Name="listView"
                             ItemsSource="{Binding Items}"
                             IsPullToRefreshEnabled="True"
